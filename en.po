@@ -1,0 +1,4 @@
+msgid "welcome" 
+msgstr "Welcome to our new vk client!" 
+msgid "curlnotfound"
+msgstr "Error: This script requests curl but it's not installed.  Aborting."
