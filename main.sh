@@ -16,8 +16,8 @@ export api="https://api.vk.com/method/"
 export tmp_dir="./tmp"
 mkdir -p $tmp_dir
 #----------------Including all source files requied-------
-source ./auth.sh
 source ./api.sh
+source ./auth.sh
 #----------------Check if auth is needed------------------
 check_auth
 #----------------Get token-------------------------------
