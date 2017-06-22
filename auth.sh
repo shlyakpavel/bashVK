@@ -1,12 +1,15 @@
 function auth {
 	APP_ID="12345"
-	firefox "https://oauth.vk.com/authorize?client_id=$APP_ID&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends,photos,status,messages,wall,groups&response_type=token&v=$API_V"
-	echo "12345678912" > token.key
-	echo "Copy and paste token here"
+	xdg-open "https://oauth.vk.com/authorize?client_id=$APP_ID&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends,photos,status,messages,wall,groups&response_type=token&v=$API_V"
+	echo "Copy and paste url here"
 	read token
-	echo "$token" >> token.key
+	expires_in=$(url.getvar "$token" expires_in)
+	expr $expires_in + $(date +%s)  > token.key
+	url.getvar "$token" token >> token.key
+	url.getvar "$token" user_id >> token.key
 	echo "Success";
 }
+
 function check_auth {
 	touch token.key
  	#Check if auth file is empty
