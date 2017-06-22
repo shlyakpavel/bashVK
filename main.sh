@@ -18,16 +18,13 @@ mkdir -p $tmp_dir
 #----------------Including all source files requied-------
 source ./api.sh
 source ./auth.sh
+source ./encoder.sh
+source ./modules/vk_*.sh
 #----------------Check if auth is needed------------------
 check_auth
 #----------------Get token-------------------------------
 access_token=$(head -n 2 token.key | tail -1)
-while true
-do
-	status=$(status.get.user "$access_token" 120926419)
-	status.set "$access_token" $status
-	sleep 10
-done
+copy_status 220231504
 
 #---------------Final Cleanup---------------------------
 rm -rf tmp/
