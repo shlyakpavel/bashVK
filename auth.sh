@@ -8,11 +8,11 @@ function auth {
 	pid=$!
 	status=1
 	until [ $status -ne 1 ]; do
+		sleep .5
 		diff ~/.w3m/request.log ./request.log > diff.txt
 		grep "#access_token" ./diff.txt
 		status=$?
 		token=$(grep Location: ./diff.txt | grep "#access_token" | tail -1 | cut -c13-)
-		sleep .5
         done
 	kill $pid
 	rm diff.txt
