@@ -1,6 +1,7 @@
 #!/bin/bash
 #Download json library
 wget https://raw.githubusercontent.com/dominictarr/JSON.sh/master/JSON.sh
+chmod a+x JSON.sh 
 #Generate translation files
 for FILENAME in *.po;
 do
