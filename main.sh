@@ -36,7 +36,7 @@ longpoll &
 longpoll_pid=$!
 #----------------Main body--------------------------------
 #copy_status 220231504
-sleep 10
+sleep 40
 
 #---------------Kill background process-------------------
 kill $longpoll_pid
