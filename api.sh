@@ -37,3 +37,10 @@ done
 function url.getvar {
 url.struct $1 | grep $2 | cut -d "=" -f2
 }
+
+function notify {
+tput cup $[$(tput lines)-1] 0
+printf "%$(tput cols)s" ""
+tput cup $[$(tput lines)-1] $[$(tput cols)-${#1}]
+printf "$@"
+}
