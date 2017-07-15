@@ -44,7 +44,6 @@ longpoll(){
 	#Infinitive loop
 	while true
 	do
-		echo $ts
 		request "https://$server?act=a_check&key=$key&ts=$ts&wait=25&mode=2&version=2" | $JSON -b > $tmp_dir/longpoll_$ts.txt
 		new_ts=$(get_new_ts $ts ts)
 		process_updates $ts

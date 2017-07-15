@@ -37,8 +37,8 @@ longpoll_pid=$!
 #----------------Main body--------------------------------
 while true
 do
-	$(dialog --nocancel --menu "What to do?" 0 0 0 \
-	copy_status "Copy status"\
+	$(dialog --nocancel --menu $"menu" 0 0 0 \
+	copy_status $"cpstatus" \
 	3 4\
 	break "Exit"\
 	--output-fd 1)
