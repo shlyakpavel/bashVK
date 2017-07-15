@@ -9,7 +9,6 @@ get_new_ts(){
 
 process_updates(){
 	args=""
-	cat $tmp_dir/longpoll_$1.txt
 	#TODO:	Make all updates count (now only the first one gets executed)
 	args_quantity=$(grep "\"updates\",0" $tmp_dir/longpoll_$1.txt | wc -l)
 	for (( c=1; c<$args_quantity; c++ ))
@@ -20,8 +19,7 @@ process_updates(){
 	done
 	cmd=$(grep "\"updates\",0,0" $tmp_dir/longpoll_$1.txt)
 	cmd=$(echo ${cmd##*]} | xargs)
-	echo -n "Executing command: $cmd "
-	echo "with args $args"
+	#echo "Executing command: $cmd with args $args"
 	#TODO:	Change labels to commands and replace all the debug output to the modules
 	case $cmd in
 		1  ) echo "Замена флагов сообщения";;

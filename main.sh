@@ -35,8 +35,14 @@ access_token=$(head -n 2 token.key | tail -1)
 longpoll &
 longpoll_pid=$!
 #----------------Main body--------------------------------
-#copy_status 220231504
-sleep 40
+while true
+do
+	$(dialog --nocancel --menu "What to do?" 0 0 0 \
+	copy_status "Copy status"\
+	3 4\
+	break "Exit"\
+	--output-fd 1)
+done
 
 #---------------Kill background process-------------------
 kill $longpoll_pid
