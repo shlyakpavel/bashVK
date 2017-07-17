@@ -45,7 +45,7 @@ do
 done
 
 #---------------Kill background process-------------------
-kill $longpoll_pid
+{ kill $longpoll_pid && wait $longpoll_pid; } 2>/dev/null
 
 #---------------Final Cleanup-----------------------------
 rm -rf tmp/
