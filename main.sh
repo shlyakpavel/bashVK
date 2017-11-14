@@ -22,9 +22,9 @@ mkdir -p $tmp_dir
 source ./api.sh
 source ./auth.sh
 source ./encoder.sh
-source ./modules/vk_copystatus.sh
 source ./modules/vk_longpoll.sh
 source ./modules/vk_friends.sh
+source ./modules/vk_copystatus.sh
 
 #----------------Check if auth is needed------------------
 check_auth

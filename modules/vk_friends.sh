@@ -7,5 +7,5 @@ function select_friend {
    		echo ${FOO// /\\\ } >> $tmp_dir/friends_"$ID"_names.txt
 	done < $tmp_dir/friends_"$ID"_names_pure.txt
 	rm $tmp_dir/friends_"$ID"_names_pure.txt $tmp_dir/friends_"$ID"_lastname.txt $tmp_dir/friends_"$ID"_firstname.txt 
-	paste -d "\n" $tmp_dir/friends_"$ID"_ids.txt $tmp_dir/friends_"$ID"_names.txt | xargs dialog --nocancel --menu $"choose_someone" 0 0 0
+	paste -d "\n" $tmp_dir/friends_"$ID"_ids.txt $tmp_dir/friends_"$ID"_names.txt | xargs dialog --output-fd 1 --nocancel --menu $"choose_someone" 0 0 0
 }
