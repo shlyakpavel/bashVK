@@ -1,5 +1,5 @@
 function copy_status {
-	id=$(select_friend)
+	id=$(select_friend $id)
 	status=$(status.get.user "$access_token" $id)
 	status.set "$access_token" $(urlencode "$status") #$status
 }
