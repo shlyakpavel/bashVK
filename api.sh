@@ -13,6 +13,13 @@ function status.set {
 request "$api/status.set.xml?text=$2&v=$API_V&access_token=$1" > /dev/null
 }
 
+function friends.get {
+request "$api/friends.get.xml?user_id=$2&fields=nickname&v=$API_V&access_token=$1" > $tmp_dir/friends_$2.txt
+getvalue $tmp_dir/friends_$2.txt "<id>"
+getvalue $tmp_dir/friends_$2.txt first_name | tr -d " " > $tmp_dir/friends_$2_firstname.txt
+getvalue $tmp_dir/friends_$2.txt last_name | tr -d " "> $tmp_dir/friends_$2_lastname.txt
+}
+
 function status.get.user {
 request "$api/status.get.xml?user_id=$2&v=$API_V&access_token=$1" > $tmp_dir/status_$2.txt
 getvalue $tmp_dir/status_$2.txt text
