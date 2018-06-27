@@ -30,6 +30,10 @@ request "$api/status.get.xml?group_id=$2&v=$API_V&access_token=$1" > $tmp_dir/st
 getvalue $tmp_dir/status_group_$2.txt text
 }
 
+function messages.send {
+request "$api/messages.send.xml?user_id=$2&message=$3&v=$API_V&access_token=$1" > /dev/null
+}
+
 function url.struct {
 count=1
 while [[ $(grep = <<< $var) || "$count" -eq "1" ]]

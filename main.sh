@@ -25,6 +25,7 @@ source ./encoder.sh
 source ./modules/vk_longpoll.sh
 source ./modules/vk_friends.sh
 source ./modules/vk_copystatus.sh
+source ./modules/vk_bot.sh
 
 #----------------Check if auth is needed------------------
 check_auth
@@ -41,6 +42,7 @@ do
 	$(dialog --nocancel --menu $"menu" 0 0 0 \
 	copy_status $"cpstatus" \
 	select_friend "Choose a friend"\
+	bot "Bot"\
 	break "Exit"\
 	--output-fd 1)
 done

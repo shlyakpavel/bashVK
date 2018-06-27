@@ -5,7 +5,8 @@ function notfound {
 	exit 1
 }
 [ -x "$(command -v dialog)" ] || notfound Dialog
-[ -x "$(command -v w3m)" ] || notfound W3m
+#W3C check commented out as it is now unnecessary
+#[ -x "$(command -v w3m)" ] || notfound W3m
 #Download json library if it is not presented in the current directory
 [ -f ./JSON.sh ] || wget https://raw.githubusercontent.com/dominictarr/JSON.sh/master/JSON.sh
 chmod a+x JSON.sh 

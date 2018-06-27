@@ -17,9 +17,8 @@ function auth {
 		kill $pid
 		rm diff.txt
 	else
-		echo "w3m not found! Fallback mode is not implemented yet"
+		xdg-open $URL && echo "Copy and paste url here" && read token
 	fi
-	#xdg-open $URL && echo "Copy and paste url here" && read token
 	expires_in=$(url.getvar "$token" expires_in)
 	expr $expires_in + $(date +%s)  > token.key
 	url.getvar "$token" token >> token.key
